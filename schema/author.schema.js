@@ -1,6 +1,5 @@
 
 const { Schema, model } = require("mongoose")
-const { type } = require("os")
 
 const Author = new Schema({
     full_name: {

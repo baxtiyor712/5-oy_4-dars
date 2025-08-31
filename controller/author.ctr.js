@@ -8,6 +8,8 @@ const getAllAuthors = async (req, res) => {
         console.log(error.message);
     }
 }
+
+
 ////////////////////////////////////////////////////////////////////////////
 const addAuthor = async (req, res) => {
     try {
@@ -24,7 +26,10 @@ const addAuthor = async (req, res) => {
         console.log(error.message);
     }
 }
+
 ////////////////////////////////////////////////////////////////////////
+
+
 const getOneAuthor = async (req, res) => {
     try {
         const { id } = req.params
@@ -42,7 +47,9 @@ const getOneAuthor = async (req, res) => {
         console.log(error.message);
     }
 }
+
 ////////////////////////////////////////////////////////////////////////////
+
 const updateAuthor = async (req, res) => {
     try {
         const {
@@ -54,7 +61,7 @@ const updateAuthor = async (req, res) => {
 
         if (!foundedAuthor) {
             return res.status(404).json({
-                message: "Author updated"
+                message: "Author not found"
             })
         }
 
@@ -62,7 +69,7 @@ const updateAuthor = async (req, res) => {
             { full_name, date_of_birth, date_of_death, creativity, period, bio, photo }, { new: true })
 
         res.status(404).json({
-            message: "Author not found",
+            message: "Author updated",
             newAuthor
         })
 
@@ -80,9 +87,10 @@ const deleteAuthor = async (req, res) => {
 
         if (!foundedAuthor) {
             return res.status(404).json({
-                message: "Author updated"
+                message: "Author not found "
             })
         }
+        
         await AuthorSchema.findByIdAndUpdate(id)
         res.status(404).json({
             message: "Author deleted",

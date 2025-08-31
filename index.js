@@ -1,6 +1,6 @@
 const express = require("express")
 const cors = require("cors")
-const connectdb = require("./config/db.config")
+const connectDB = require("./config/db.config")
 const authorRouter = require("./router/author.routes")
 const bookRouter = require("./router/book.routes")
 require("dotenv").config()
@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000
 app.use(cors())
 app.use(express.json())
 
-connectdb()
+connectDB()
 
 
 //// Router ////

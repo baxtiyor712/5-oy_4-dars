@@ -1,6 +1,4 @@
 const { Schema, model } = require("mongoose")
-const { type } = require("os")
-const { title } = require("process")
 
 const Book = new Schema({
     title: {
@@ -43,5 +41,5 @@ const Book = new Schema({
     }
 )
 
-const BookSchema = model("books", Book)
+const BookSchema = model("Books", Book)
 module.exports = BookSchema

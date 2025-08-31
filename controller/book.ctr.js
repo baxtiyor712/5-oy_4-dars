@@ -1,4 +1,4 @@
-const BookSchema = require("../schema/bookSchema");
+const BookSchema = require("../schema/bookschema");
 
 const getAllBooks = async (req, res) => {
     try {
@@ -19,7 +19,7 @@ const addBook = async (req, res) => {
 
         await BookSchema.create({ title, authorId, period, peges, pablishedYear, genre, pablishedHome, desc })
 
-        res.status(200).json({
+        res.status(201).json({
             message: "Added new book"
         })
     } catch (error) {
@@ -85,7 +85,7 @@ const deleteBook = async (req, res) => {
 
         await BookSchema.findByIdAndDelete(id)
 
-        res.status(2001).json({
+        res.status(201).json({
             message: "book deleted"
         })
     } catch (error) {
